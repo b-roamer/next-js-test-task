@@ -2,7 +2,7 @@
 
 import Button from '@/app/components/common/Button';
 import ButtonLink from '@/app/components/common/ButtonLink';
-import Comment from '@/app/components/posts/Comment';
+import Comment from '@/app/components/posts/CommentBlock';
 import { createPost, deletePost, fetchComments, fetchPost, updatePost } from '@/app/store/thunks';
 import { useAppDispatch, useAppSelector } from '@/app/utils/hooks';
 import { useRouter } from 'next/navigation';

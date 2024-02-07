@@ -2,8 +2,9 @@
 
 import Button from '@/app/components/common/Button';
 import ButtonLink from '@/app/components/common/ButtonLink';
-import Comment from '@/app/components/posts/Comment';
+import CommentBlock from '@/app/components/posts/CommentBlock';
 import { deletePost, fetchComments, fetchPost, updatePost } from '@/app/store/thunks';
+import { Comment } from '@/app/utils/api.types';
 import { useAppDispatch, useAppSelector } from '@/app/utils/hooks';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -78,9 +79,9 @@ export default function EditPostPage ({ params }: { params: { id: string } }) {
                 </form>
 
                 <p>Comments:</p>
-                {comments.map(comment => {
+                {comments.map((comment: Comment) => {
                     return (
-                        <Comment key={comment.id} comment={comment} />
+                        <CommentBlock key={comment.id} comment={comment} />
                     )
                 })}
             </div>

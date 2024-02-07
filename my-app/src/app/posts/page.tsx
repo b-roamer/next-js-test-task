@@ -2,12 +2,12 @@
 
 import React, { useEffect } from 'react';
 import ButtonLink from '../components/common/ButtonLink';
-import { getPosts } from '../utils/api';
-import Post from '../components/posts/Post';
+import PostBlock from '../components/posts/PostBlock';
 import { fetchPosts } from '../store/thunks';
 import { useAppDispatch, useAppSelector } from '../utils/hooks';
 import Button from '../components/common/Button';
 import { useRouter } from 'next/navigation';
+import { Post } from '../utils/api.types';
 
 export default function PostsPage () {
   const dispatch = useAppDispatch();
@@ -26,9 +26,9 @@ export default function PostsPage () {
 
       <Button text='+ Add Post' extraClasses='hover:hover:bg-green-500 transition mb-8 max-w-xl' onClick={() => router.push("/posts/new-post")} />
 
-      {posts.map(post => {
+      {posts.map((post: Post) => {
         return (
-          <Post key={post.id} post={post} />
+          <PostBlock key={post.id} post={post} />
         )
       })}
     </main>
